@@ -21,17 +21,17 @@ public class Client {
         for(int j =l; j < r-1; j++){
             if (intArray[j] <= x) {
                 i = i + 1;
-                //exchange(intArray, l, j);
+                exchange(intArray, l, j);
             }
-            //exchange(intArray, l-1, r);
+            exchange(intArray, l-1, r);
             return i + 1;
         }
         return 0;
     }
-    //public void exchange(int[] intArray, int indexA, int indexB){
-     //   int temp = intArray[i];
+    public void exchange(int[] intArray, int indexA, int indexB){
+        int temp = intArray[indexA];
 
-       // intArray[i] = intArray[j];
-        //intArray[j] = temp;
-    //}
+        intArray[indexA] = intArray[indexB];
+        intArray[indexB] = temp;
+    }
 }
