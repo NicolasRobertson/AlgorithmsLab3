@@ -5,23 +5,42 @@ public class TestInteger implements Comparable<TestInteger>{
     * Author: Chaitanya Singh
     * Availability: beginnersbook.com under Java Collectinos
     *******************************************************/
+
+    /*Establish Variables*/
     Integer testInt;
     static long counter;
 
+    /*Constructor*/
     TestInteger(Integer test){
         this.testInt = test;
     }
 
+    /*Comparison Counter*/
     public void CountComparisons(){
         counter++;
     }
-    public void GetCountComparisons(){
-        System.out.println("The number of comparisons is " + counter);
+
+    /*Methods for comparison counter*/
+    public static void GetCountComparisons(){
+        System.out.println("Comparisons: " + counter);
+    }
+    public static void ResetCountComparisons(){
+        counter = 0;
     }
 
+    /*Returns int value of TestInteger*/
+    public int toInt(){
+        return testInt.intValue();
+    }
+
+    /*Compares TestIntegers*/
     public int compareTo(TestInteger intToCompare){
-        int comparison = this.testInt.compareTo(intToCompare.testInt);
+        int comparison;
         CountComparisons();
-        return comparison == 0 ? comparison: testInt;
+
+        if(testInt.intValue() <= intToCompare.toInt()){ comparison = 0; }
+        else {comparison = 1; }
+
+        return comparison;
     }
 }
